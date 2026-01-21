@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   apiKey: 'c9423c5ae75b774c0b20ba6a32c978ad',
   weatherApiUrl: 'https://api.openweathermap.org/data/2.5',
-  geocodingApiUrl: 'https://api.openweathermap.org/geo/1.0'
+  geocodingApiUrl: 'https://api.openweathermap.org/geo/1.0',
+  iconApiUrl: 'https://openweathermap.org/img/wn'
 }
 
 /*
