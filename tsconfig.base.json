@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@pages/*": [
+        "src/app/pages/*"
+      ],
+      "@ui/*": [
+        "src/app/ui/*"
+      ]
+    }
+  }
+}

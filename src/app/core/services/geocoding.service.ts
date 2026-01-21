@@ -1,8 +1,8 @@
 import {Injectable, inject} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "src/environments/environment";
-import {Geocoding} from "../../shared/interfaces/geocoding.interfaces";
+import {environment} from "@environments/environment";
+import {Geocoding} from "@shared/interfaces/geocoding.interfaces";
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,9 @@
 import {Injectable, inject} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {environment} from 'src/environments/environment';
-import {CurrentWeatherResponse} from '../../shared/interfaces/weather.interfaces';
-import {ForecastResponse} from '../../shared/interfaces/forecast.interfaces';
+import {environment} from '@environments/environment';
+import {CurrentWeatherResponse} from '@shared/interfaces/weather.interfaces';
+import {ForecastResponse} from '@shared/interfaces/forecast.interfaces';
 
 @Injectable({
   providedIn: 'root'
