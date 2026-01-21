@@ -129,6 +129,9 @@
     }
   },
   "cli": {
+    "cache": {
+      "enabled": false
+    },
     "schematicCollections": [
       "@ionic/angular-toolkit"
     ],
