@@ -21,6 +21,7 @@ export interface MainInfo {
 export interface WindInfo {
   speed: number,
   deg: number
+  gust: number
 }
 
 export interface CloudsInfo {
@@ -51,6 +52,8 @@ export interface CurrentWeatherResponse {
   visibility: number,
   wind: WindInfo,
   clouds: CloudsInfo,
+  rain?: RainInfo,
+  snow?: SnowInfo,
   dt: number,
   sys: SysInfo,
   timezone: number,
