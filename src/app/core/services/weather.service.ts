@@ -12,20 +12,20 @@ export class WeatherService {
   private http = inject(HttpClient);
 
   private apiKey = environment.apiKey;
-  private apiUrl = environment.apiUrl;
+  private weatherApiUrl = environment.weatherApiUrl;
 
-  getCurrentWeather(city: string): Observable<CurrentWeatherResponse> {
-    const url = `${this.apiUrl}/weather?q=${city}&appid=${this.apiKey}&units=metric&lang=es`;
+  getCurrentWeather(lat: number, lon: number): Observable<CurrentWeatherResponse> {
+    const url = `${this.weatherApiUrl}/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=es`;
     return this.http.get<CurrentWeatherResponse>(url);
   }
 
   getForecast(lat: number, lon: number): Observable<ForecastResponse> {
-    const url = `${this.apiUrl}/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=es`;
+    const url = `${this.weatherApiUrl}/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=es`;
     return this.http.get<ForecastResponse>(url);
   }
 
   getCurrentWeatherByCoords(lat: number, lon: number): Observable<CurrentWeatherResponse> {
-    const url = `${this.apiUrl}/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=es`;
+    const url = `${this.weatherApiUrl}/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric&lang=es`;
     return this.http.get<CurrentWeatherResponse>(url);
   }
 }
