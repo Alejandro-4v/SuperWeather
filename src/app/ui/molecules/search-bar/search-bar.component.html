@@ -1,6 +1,6 @@
 <div class="glass-pill w-100">
     <app-input-field [placeholder]="placeholder()" [value]="value()" [ariaLabel]="ariaLabel()"
-        (valueChange)="onValueChange($event)" class="flex-grow-1"></app-input-field>
+        (valueChange)="onValueChange($event)" (enter)="onSearch()" class="flex-grow-1"></app-input-field>
 
     <app-search-button (btnClick)="onSearch()"></app-search-button>
 </div>
