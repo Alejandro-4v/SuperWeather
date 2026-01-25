@@ -3,6 +3,7 @@
 }
 
 .form-control {
+    position: relative; // Stable positioning for iOS Safari anchoring
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
