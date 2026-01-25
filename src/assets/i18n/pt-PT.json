@@ -2,5 +2,12 @@
     "language_label": "Língua",
     "language_placeholder": "Selecionar idioma",
     "search_bar_placeholder": "Buscar cidade",
-    "username_placeholder": "Nome de utilizador (Portugal)"
+    "today_forecast": "Previsão de hoje",
+    "hourly_forecast": "Previsão horária",
+    "forecast_label": "Previsão 5 dias",
+    "username_placeholder": "Nome de utilizador (Portugal)",
+    "humidity_label": "Humidade",
+    "wind_speed_label": "Velocidade do vento",
+    "pressure_label": "Pressão",
+    "visibility_label": "Visibilidade"
 }

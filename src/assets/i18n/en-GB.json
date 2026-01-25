@@ -1,5 +1,12 @@
 {
     "language_label": "Language",
     "language_placeholder": "Select language",
-    "search_bar_placeholder": "Search city"
+    "search_bar_placeholder": "Search city",
+    "today_forecast": "Today's forecast",
+    "hourly_forecast": "Hourly forecast",
+    "forecast_label": "5-Day Forecast",
+    "humidity_label": "Humidity",
+    "wind_speed_label": "Wind Speed",
+    "pressure_label": "Pressure",
+    "visibility_label": "Visibility"
 }
