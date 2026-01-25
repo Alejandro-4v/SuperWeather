@@ -8,5 +8,6 @@
     "humidity_label": "Humidity",
     "wind_speed_label": "Wind Speed",
     "pressure_label": "Pressure",
-    "visibility_label": "Visibility"
+    "visibility_label": "Visibility",
+    "precipitation_label": "Precipitation"
 }
