@@ -1,0 +1,12 @@
+<div class="carousel-wrapper px-3">
+  @if (title()) {
+  <h3 class="text-white fw-bold mb-3 fs-3">{{ title() }}</h3>
+  }
+
+  <div class="carousel-container d-flex overflow-auto flex-nowrap pb-2 gap-3">
+    @for (item of forecasts(); track item.dt) {
+    <app-vertical-hour-forecast class="snap-item" [hour]="formatHour(item.dt)" [icon]="item.weather[0].icon"
+      [temp]="item.main.temp"></app-vertical-hour-forecast>
+    }
+  </div>
+</div>
