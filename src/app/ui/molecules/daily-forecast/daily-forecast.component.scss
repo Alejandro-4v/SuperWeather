@@ -8,15 +8,28 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+    margin-bottom: 0.25rem;
 }
 
-.hour-text,
-.temp-text,
+.day-text,
+.max-temp,
+.min-temp,
 .desc-text {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.2;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    transform: translateY(-1px);
+}
+
+.day-text {
+    min-width: 90px;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-2 {
+    flex: 2;
 }
 
 .weather-icon {
@@ -27,10 +40,14 @@
 
 @media (max-width: 576px) {
 
-    .hour-text,
-    .temp-text,
-    .desc-text {
-        font-size: 1.1rem;
+    .day-text,
+    .max-temp,
+    .min-temp {
+        font-size: 1rem;
+    }
+
+    .day-text {
+        min-width: 80px;
     }
 
     .weather-icon {

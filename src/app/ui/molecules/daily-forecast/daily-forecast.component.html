@@ -1,0 +1,13 @@
+<div class="d-flex align-items-center w-100 px-4 py-2 text-white">
+  <span class="day-text fw-bold me-auto flex-1">{{ weekday() }}</span>
+
+  <div class="d-flex align-items-center flex-grow-1 justify-content-center flex-2">
+    <img [src]="icon() | weatherIcon" [alt]="description()" class="weather-icon me-2">
+    <span class="desc-text opacity-75 d-none d-sm-inline">{{ capitalizedDescription() }}</span>
+  </div>
+
+  <div class="temp-container d-flex align-items-center justify-content-end flex-1 gap-3">
+    <span class="max-temp fw-bold">{{ maxTemp() }}°</span>
+    <span class="min-temp opacity-50">{{ minTemp() }}°</span>
+  </div>
+</div>
