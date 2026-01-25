@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { WeatherIconPipe } from '@pipes/weather-icon.pipe';
 
 @Component({
@@ -6,7 +7,7 @@ import { WeatherIconPipe } from '@pipes/weather-icon.pipe';
   templateUrl: './vertical-hour-forecast.component.html',
   styleUrls: ['./vertical-hour-forecast.component.scss'],
   standalone: true,
-  imports: [WeatherIconPipe],
+  imports: [CommonModule, WeatherIconPipe],
   host: {
     'class': 'glass-card d-flex flex-column align-items-center p-2 rounded-4'
   }

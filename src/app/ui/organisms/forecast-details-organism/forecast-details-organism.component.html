@@ -6,7 +6,7 @@
                 <p class="current-date mb-0">{{ currentDate() }}</p>
             </div>
             <div class="temp-info text-end">
-                <h1 class="display-1 fw-bold m-0">{{ currentTemp() }}°</h1>
+                <h1 class="display-1 fw-bold m-0">{{ currentTemp() | number:'1.1-1' }}°</h1>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
   </div>
 
   <div class="temp-container d-flex align-items-center justify-content-end flex-1 gap-3">
-    <span class="max-temp fw-bold">{{ maxTemp() }}°</span>
-    <span class="min-temp opacity-50">{{ minTemp() }}°</span>
+    <span class="max-temp fw-bold">{{ maxTemp() | number:'1.1-1' }}°</span>
+    <span class="min-temp opacity-50">{{ minTemp() | number:'1.1-1' }}°</span>
   </div>
 </div>
