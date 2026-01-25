@@ -1,4 +1,5 @@
 {
     "language_label": "Language",
-    "username_placeholder": "Username (UK)"
+    "language_placeholder": "Select language",
+    "search_bar_placeholder": "Search city"
 }
