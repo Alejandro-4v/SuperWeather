@@ -1,4 +1,5 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input, signal, inject } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../../pipes/translate.pipe';
 import { ForecastInfo } from '@shared/interfaces/forecast.interfaces';
@@ -11,53 +12,30 @@ import { WeatherDetailsCardComponent } from '../../molecules/weather-details-car
     standalone: true,
     imports: [CommonModule, TranslatePipe, HourForecastCarouselComponent, WeatherDetailsCardComponent],
     templateUrl: './forecast-details-organism.component.html',
-    styleUrls: ['./forecast-details-organism.component.scss']
+    styleUrls: ['./forecast-details-organism.component.scss'],
+    providers: [DatePipe]
 })
 export class ForecastDetailsOrganismComponent {
     title = input<string>('');
     details = input<WeatherDetail[]>([]);
     forecasts = input<ForecastInfo[]>([]);
+    cityName = input<string>('');
+    currentTemp = input<number>(0);
+    lang = input<string>('en-GB');
 
-    selectedDayIndex = signal(0);
-
-    availableDays = computed(() => {
-        const items = this.forecasts();
-        if (items.length === 0) return [];
-
-        const dayLabels: string[] = [];
-        const seenDates = new Set<string>();
-
-        items.forEach(f => {
-            const date = new Date(f.dt * 1000).toDateString();
-            if (!seenDates.has(date)) {
-                seenDates.add(date);
-                dayLabels.push(date === new Date().toDateString() ? 'Today' : date);
-            }
-        });
-
-        return dayLabels;
-    });
+    private datePipe = inject(DatePipe);
 
     displayForecasts = computed(() => {
-        const items = this.forecasts();
-        if (items.length === 0) return [];
+        return this.forecasts();
+    });
 
-        const groups: ForecastInfo[][] = [];
-        let currentGroup: ForecastInfo[] = [];
-        let lastDate = '';
-
-        items.forEach(f => {
-            const date = new Date(f.dt * 1000).toDateString();
-            if (date !== lastDate && currentGroup.length > 0) {
-                groups.push(currentGroup);
-                currentGroup = [];
-            }
-            currentGroup.push(f);
-            lastDate = date;
-        });
-        if (currentGroup.length > 0) groups.push(currentGroup);
-
-        return groups[this.selectedDayIndex()] || [];
+    currentDate = computed(() => {
+        const forecasts = this.forecasts();
+        if (forecasts.length > 0) {
+            // Use the lang input for locale, defaulting to en-GB
+            return this.datePipe.transform(forecasts[0].dt * 1000, 'EEEE, d MMMM', '', this.lang());
+        }
+        return '';
     });
 
     getGridClass(index: number): string {
@@ -65,7 +43,7 @@ export class ForecastDetailsOrganismComponent {
         const remainder = total % 3;
         const lastRowStartIndex = total - (remainder || 3);
 
-        let classes = 'col-6 col-md-4';
+        let classes = 'col-12 col-md-4';
 
         if (index >= lastRowStartIndex) {
             if (remainder === 1) {
@@ -78,7 +56,4 @@ export class ForecastDetailsOrganismComponent {
         return classes;
     }
 
-    selectDay(index: number) {
-        this.selectedDayIndex.set(index);
-    }
 }

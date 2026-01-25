@@ -1,23 +1,19 @@
 <div class="organism-wrapper p-4 mb-3">
-    <!-- Header with Title and Day Selection -->
-    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 gap-3">
-        @if (title()) {
-        <h3 class="text-white fw-bold mb-0 fs-3">{{ title() | translate }}</h3>
-        }
-
-        <!-- Day Selector Pills -->
-        <div class="day-selector d-flex gap-2 overflow-auto pb-2">
-            @for (day of availableDays(); track day; let i = $index) {
-            <button class="btn btn-pill" [class.active]="selectedDayIndex() === i" (click)="selectDay(i)">
-                {{ day | translate }}
-            </button>
-            }
+    <div class="current-weather-header mb-4">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+            <div class="city-info">
+                <h1 class="city-name fw-bold m-0">{{ cityName() }}</h1>
+                <p class="current-date mb-0">{{ currentDate() }}</p>
+            </div>
+            <div class="temp-info text-end">
+                <h1 class="display-1 fw-bold m-0">{{ currentTemp() }}°</h1>
+            </div>
         </div>
     </div>
 
     <!-- Main Content: Hourly Forecast Carousel -->
     <div class="mb-5">
-        <app-hour-forecast-carousel [forecasts]="displayForecasts()"></app-hour-forecast-carousel>
+        <app-hour-forecast-carousel [forecasts]="displayForecasts()" [lang]="lang()"></app-hour-forecast-carousel>
     </div>
 
     <!-- Bottom Content: Weather Details Grid -->
