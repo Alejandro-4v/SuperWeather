@@ -1,0 +1,40 @@
+:host {
+    display: block;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.hour-text,
+.temp-text,
+.desc-text {
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.weather-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+}
+
+@media (max-width: 576px) {
+
+    .hour-text,
+    .temp-text,
+    .desc-text {
+        font-size: 1.1rem;
+    }
+
+    .weather-icon {
+        width: 2rem;
+        height: 2rem;
+    }
+}
