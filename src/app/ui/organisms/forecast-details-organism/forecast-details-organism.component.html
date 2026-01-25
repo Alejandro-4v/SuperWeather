@@ -1,0 +1,32 @@
+<div class="organism-wrapper p-4 mb-3">
+    <!-- Header with Title and Day Selection -->
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 gap-3">
+        @if (title()) {
+        <h3 class="text-white fw-bold mb-0 fs-3">{{ title() | translate }}</h3>
+        }
+
+        <!-- Day Selector Pills -->
+        <div class="day-selector d-flex gap-2 overflow-auto pb-2">
+            @for (day of availableDays(); track day; let i = $index) {
+            <button class="btn btn-pill" [class.active]="selectedDayIndex() === i" (click)="selectDay(i)">
+                {{ day | translate }}
+            </button>
+            }
+        </div>
+    </div>
+
+    <!-- Main Content: Hourly Forecast Carousel -->
+    <div class="mb-5">
+        <app-hour-forecast-carousel [forecasts]="displayForecasts()"></app-hour-forecast-carousel>
+    </div>
+
+    <!-- Bottom Content: Weather Details Grid -->
+    <div class="row g-3">
+        @for (detail of details(); track detail.label; let i = $index) {
+        <div [class]="getGridClass(i)">
+            <app-weather-details-card [icon]="detail.icon" [label]="detail.label | translate"
+                [value]="detail.value"></app-weather-details-card>
+        </div>
+        }
+    </div>
+</div>
