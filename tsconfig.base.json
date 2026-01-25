@@ -7,8 +7,8 @@
       "@shared/*": [
         "src/app/shared/*"
       ],
-      "@core/*": [
-        "src/app/core/*"
+      "@services/*": [
+        "src/app/services/*"
       ],
       "@pages/*": [
         "src/app/pages/*"
