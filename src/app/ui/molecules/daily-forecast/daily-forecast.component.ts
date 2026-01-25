@@ -19,11 +19,13 @@ export class DailyForecastComponent {
   description = input.required<string>();
   minTemp = input.required<number>();
   maxTemp = input.required<number>();
+  lang = input<string>('en-GB');
 
   constructor(private datePipe: DatePipe) { }
 
   weekday = computed(() => {
-    return this.datePipe.transform(this.dt() * 1000, 'EEEE') || '';
+    const day = this.datePipe.transform(this.dt() * 1000, 'EEEE', '', this.lang()) || '';
+    return day.charAt(0).toUpperCase() + day.slice(1);
   });
 
   capitalizedDescription = computed(() => {
