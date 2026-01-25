@@ -12,6 +12,7 @@ export class InputFieldComponent {
   ariaLabel = input<string>('');
 
   valueChange = output<string>();
+  enter = output<void>();
 
   onInput(event: Event) {
     const inputElement = event.target as HTMLInputElement;
