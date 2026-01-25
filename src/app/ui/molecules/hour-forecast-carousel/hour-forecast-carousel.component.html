@@ -1,12 +1,19 @@
 <div class="carousel-wrapper">
   @if (title()) {
-  <h3 class="text-white fw-bold mb-3 fs-3">{{ title() }}</h3>
+  <h3 class="carousel-title text-white fw-bold mb-3 fs-4 px-2">{{ title() }}</h3>
   }
 
-  <div class="carousel-container d-flex overflow-auto flex-nowrap pb-2 gap-3">
-    @for (item of forecasts(); track item.dt) {
-    <app-vertical-hour-forecast class="snap-item" [hour]="formatHour(item.dt)" [icon]="item.weather[0].icon"
-      [temp]="item.main.temp"></app-vertical-hour-forecast>
+  <div class="carousel-container d-flex overflow-auto flex-nowrap pb-2">
+    @for (group of groupedForecasts(); track group.day) {
+    <div class="day-group d-flex flex-nowrap">
+      <div class="day-label-container">
+        <span class="day-label">{{ group.day }}</span>
+      </div>
+      @for (item of group.items; track item.dt) {
+      <app-vertical-hour-forecast class="snap-item" [hour]="formatHour(item.dt)" [icon]="item.weather[0].icon"
+        [temp]="item.main.temp"></app-vertical-hour-forecast>
+      }
+    </div>
     }
   </div>
 </div>
