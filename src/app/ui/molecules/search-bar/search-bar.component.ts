@@ -7,7 +7,10 @@ import { SearchButtonComponent } from '../../atoms/search-button/search-button.c
     templateUrl: './search-bar.component.html',
     styleUrls: ['./search-bar.component.scss'],
     standalone: true,
-    imports: [InputFieldComponent, SearchButtonComponent]
+    imports: [InputFieldComponent, SearchButtonComponent],
+    host: {
+        'class': 'd-block w-100'
+    }
 })
 export class SearchBarComponent {
     placeholder = input<string>('search_bar_placeholder');

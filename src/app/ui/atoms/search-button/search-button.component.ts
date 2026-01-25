@@ -1,16 +1,23 @@
-import { Component, input, output } from '@angular/core';
+import { Component, output } from '@angular/core';
+import { IonIcon } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { searchOutline } from 'ionicons/icons';
 
 @Component({
     selector: 'app-search-button',
     templateUrl: './search-button.component.html',
-    styleUrls: ['./search-button.component.scss'],
-    standalone: true
+    standalone: true,
+    imports: [IonIcon],
+    host: {
+        'class': 'd-flex align-items-center justify-content-center'
+    }
 })
 export class SearchButtonComponent {
-    label = input<string>('Search');
-    ariaLabel = input<string>('');
-
     btnClick = output<void>();
+
+    constructor() {
+        addIcons({ searchOutline });
+    }
 
     onClick() {
         this.btnClick.emit();
