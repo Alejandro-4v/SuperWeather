@@ -49,7 +49,7 @@ export class ForecastDetailsOrganismComponent {
             if (remainder === 1) {
                 classes = 'col-12';
             } else if (remainder === 2) {
-                classes = 'col-6 col-md-6';
+                classes = 'col-12 col-md-6';
             }
         }
 
